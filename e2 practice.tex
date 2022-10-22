@@ -1,0 +1,137 @@
+\documentclass[]{article}
+
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+
+%opening
+\title{E2 Exam Prep}
+\author{Evan Curry Wilbur}
+\newtheorem{lemma}{Lemma}
+\begin{document}
+
+\maketitle
+ 
+
+\section*{1.}
+Show that each of the following pairs of sets, $A, B$ have the same cardinality by writing a specific bijection $f : A \to B$:
+\begin{enumerate}
+	\item[(a)] $A = [0, 1], B = [0, 1)$
+	\item[(b)] $A = [0, 1), B = (0, 1)$
+	\item[(c)] $A = (0, 1), B = (0, \infty)$
+	\item[(d)] $A = (0, 1), B = \mathbb{R}$
+\end{enumerate}
+
+\begin{proof}
+	\begin{enumerate}
+		\item[(a)]
+		\begin{equation*}
+			f(x) =
+			\begin{cases}
+				\frac{1}{n + 1} & \text{if } x = \frac{1}{n} \text{ for some } n \in \mathbb{N}\\
+				x & \text{otherwise}
+			\end{cases}
+		\end{equation*}
+		\item[(b)]
+		\begin{equation*}
+			f(x) =
+			\begin{cases}
+				\frac{1}{2} & \text{if } x = 0 \\
+				\frac{1}{n + 1} & \text{if } x = \frac{1}{n} \text{ for some } n \in \mathbb{N}\\
+				x & \text{otherwise}
+			\end{cases}
+		\end{equation*}
+		\item[(c)]
+		\begin{equation*}
+			f(x) = \frac{1}{x} - 1
+		\end{equation*}
+		\item[(d)]
+		\begin{equation*}
+			f(x) = \tan\left(\left(x - \frac{1}{2}\right)\pi\right)
+		\end{equation*}
+	\end{enumerate}
+\end{proof}
+
+\section*{2.}
+\begin{enumerate}
+	\item[(a)] Show that, for all natural numbers $n$, we have
+	$$
+	1 + 2 + 2^2 + \dots + 2^{n - 1} = 2^n - 1.
+	$$
+	\item[(b)] Show that, for all natural numbers $n$ we have
+	$$
+		1 + 2 \cdot 2 + 3 \cdot 2^2 + \dots + n \cdot 2^{n-1} = (n - 1) \cdot 2^n + 1.
+	$$
+	\item[(c)] Show that, for all natural numbers $n$, we have
+	$$
+		2 \cdot 6 \cdot 10 \cdot 14 \dots (4n - 2) = \frac{(2n)!}{n!}
+	$$
+\end{enumerate}
+
+\begin{proof}
+	\begin{enumerate}
+		\item[(a)] Let $S(x) = 1 + x + x^2 + \dots + x^{n - 1}$. Then
+		\begin{align*}
+			xS(x) &= x + x^2 + x^3 + \dots x^n \\
+			xS(x) - S(x) &= x^n - 1 \\
+			S(x)(x - 1) &= x^n - 1 \\
+			S(x) &= \frac{x^n - 1}{x - 1}.
+		\end{align*}
+		Then $S(2) = 1 + 2 + 2^2 + \dots + 2^{n - 1} = \frac{2^n - 1}{2 - 1} = 2^n - 1$
+		\item[(b)] We prove the result by induction. When $n = 1$ both the left and right hand side of the equation evaluate to 1. So the base case is satisfied. For the induction step, assume $1 + 2 \cdot 2 + 3 \cdot 2^2 + \dots + n \cdot 2^{n-1} = (n - 1) \cdot 2^n + 1$ for $n$. We need to show $1 + 2 \cdot 2 + 3 \cdot 2^2 + \dots + (n + 1) \cdot 2^{(n + 1)-1} = ((n + 1) - 1) \cdot 2^{n + 1} + 1$. Because
+		\begin{align*}
+			\sum_{k=1}^{n + 1} n \cdot 2^{n-1} &= \sum_{k=1}^{n} n \cdot 2^{n-1} + (n + 1) \cdot 2^{(n + 1)-1} \\
+			&= (n - 1) \cdot 2^n + 1 + (n + 1) \cdot 2^{(n + 1)-1} \\
+			&= 2^n(n - 1 + n + 1) + 1 \\
+			&= n2^{n + 1} + 1 \\
+			&= ((n + 1) - 1)2^{n + 1} + 1
+		\end{align*}
+		\item[(c)] We show the result via induction. The base case $n = 1$ yields 2 on both the left and right hand side of the equation. So the base case is true. For the induction step, we take as a hypothesis:
+		$$
+			\prod_{k = 1}^n (4n - 2) = \frac{(2n)!}{n!}.
+		$$
+		We need to show
+		$$
+			\prod_{k = 1}^{n + 1} (4n - 2) = \frac{(2(n + 1))!}{(n + 1)!}.
+		$$
+		Indeed,
+		\begin{align*}
+			\prod_{k = 1}^{n + 1} (4n - 2) &= (4(n + 1) - 2)\prod_{k = 0}^n (4n - 2) \\
+			&= 2(2n + 1)\frac{(2n)!}{n!} \\
+			&= 2(2n + 1)\frac{(2n)!}{n!} \left(\frac{n + 1}{n + 1}\right) \\
+			&= (2n + 2)(2n + 1)\frac{(2n)!}{(n + 1)!} \\
+			&= \frac{(2n + 2)!}{(n + 1)!} \\
+			&= \frac{(2(n + 1))!}{(n + 1)!}
+		\end{align*}
+	\end{enumerate}
+\end{proof}
+
+\section*{3.}
+Let $S$ be a nonempty bounded subset of $\mathbb{R}$ and let $k \in \mathbb{R}$. Define $kS =\{ks : s \in S\}$. Prove:
+\begin{enumerate}
+	\item[(a)] If $k \geq 0$, then $\sup(kS) = k\sup S$
+	\item[(b)] If $k \geq 0$, then $\inf(kS) = k\inf S$
+	\item[(c)] If $k < 0$, then $\sup(kS) = k\inf S$
+	\item[(d)] If $k < 0$, then $\inf(kS) = k\sup S$
+\end{enumerate}
+
+\iffalse
+\begin{lemma}
+	If $S \subseteq \mathbb{R}$ is bounded, then $kS$ is bounded.
+\end{lemma}
+\begin{proof}
+	We may assume, without loss of generality, that $S$ is nonempty. Indeed, if $S = \emptyset$ then $S$ being bounded is vacuously true. Since $S$ is bounded, there exists $M \in \mathbb{N}$ such that for all $s \in S, -M \leq s \leq M$. There are three cases we must consider:
+	\begin{enumerate}
+		\item[$k = 0$:] This case is trivial since $0S = \{0\}$ which is clearly bounded. 
+		\item[$k > 0$:] Since $-M \leq s \leq M$ for all $s \in S$ it follows that $-kM \leq ks \leq kM$ for all $ks \in kS$. Thus $kS$ is bounded
+		\item[$k < 0$:] This is similar to the previous case but with the inequalities reversed, $-kM \geq ks \geq kM$, hence $kS$ is bounded.
+	\end{enumerate}
+\end{proof}
+	An immediate corollary to this lemma is that $kS$ has an infimum or supremum whenever $S$ has an infimum or supremum.
+\fi
+\begin{proof}
+	Because I am incredibly lazy, I will try to show all four parts simultaneously. Since $S$ is bounded, both the infimum and supremum exist, hence for all, $s \in S$ $\inf S \leq s \leq \sup S$. With $k \geq 0$ we have $k\inf S \leq ks \leq k\sup S$. When $k < 0$ we have $k\inf S \geq ks \geq k\sup S$. Thus $kS$ is bounded below and above by $k\inf S$ and $k\sup S$ respectively when $k \geq 0$ (and vice-versa when $k < 0$).\\
+	\\
+	We will now show that $\sup kS = k\sup S$. Analogous arguments can be made to show the other three results required by the problem (again I defer to laziness and do not wish to exhaust all these cases explicitly).\\
+	\\
+	Suppose for contradiction that $\sup kS < k\sup S$. Then for all $ks \in kS$, $ks \leq \sup(kS) < k\sup S$. But when $k > 0$ we see that $s \leq \frac{\sup(kS)}{k} < k\sup S$ which implies that $\frac{\sup(kS)}{k}$ is an upper bound of $S$ smaller than the supremum. This is a contradiction which implies $\sup kS = k\sup S$.
+\end{proof}
+\end{document}

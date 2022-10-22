@@ -1,0 +1,36 @@
+\documentclass[]{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+%opening
+\title{A5 Quiz Preparation}
+\author{Evan Curry Wilbur}
+
+\begin{document}
+
+\maketitle
+
+
+\section*{1}
+	Let $S = \mathbb{N} \times \mathbb{N}$. Define $\sim$ on $S$ by $(a, b) \sim (c, d)$ provided that $ab = cd$.
+	\begin{itemize}
+		\item[(a)] Show that $\sim$ is an equivalence relation.
+			\begin{proof}
+				First we show that the relation is reflexive. Given some $(a, b) \in S$, it's clear that $ab = ab$ do to the fact that $=$ is an equivalence relation on $\mathbb{N}$, hence $(a, b) \sim (a, b)$. \\
+				To show that the relation is symmetric, first assume $(a, b) \sim (c, d)$ for some $(a, b), (c, d) \in S$. Then $ab = cd \iff cd = ab \iff (c, d) \sim (a, b)$. \\
+				For transitivity, assume $(a, b) \sim (c, d)$ and $(c, d) \sim (e, f)$. Then $ab = cd$ and $cd = ef$. So by transitivity of $=$, it follows that $ab = ef$, hence $(a, b) \sim (e, f)$.
+			\end{proof}
+		\item[(b)] Find $E_{(3, 8)}$; that is, list all of the elements of $S$ that belong to the equivalence class containing $(3, 8)$.
+			\begin{proof}
+				$E_{(3, 8)} = \{(1, 24), (2, 12), (3, 8), (4, 6), (6, 4), (8, 3), (12,2), (24, 1)\}$
+			\end{proof}
+		\item[(c)] Find all the equivalence classes that contain exactly one element of $S$.
+			\begin{proof}
+				
+			\end{proof}
+		\item[(d)] Find all of the equivalence classes that contain exactly two elements of $S$.
+	\end{itemize}
+
+\end{document}

@@ -1,0 +1,114 @@
+\documentclass[]{article}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+%opening
+\title{A4 Writing Exercise}
+\author{Evan Curry Wilbur}
+
+\begin{document}
+
+\maketitle
+
+\section*{3.1}
+\begin{itemize}
+	\item[19.a] \textbf{Proposition.} If $m$ is an even integer, then $5m + 4$ is an even integer. \\
+	\\
+	The proposition is true and the proof is correct, however it is not well written since it plays `fast and loose' with variables, namely how $n$ relates to $m$.
+	\begin{proof} Given that $m$ is even, there exists $n \in \mathbb{Z}$ such that $m = 2n$. Thus $5m + 4 = 5(2n) + 4 = 2(5n+2)$, which means that $2 | (5m + 4)$. Hence $5m + 4$ is even.
+	\end{proof}
+	\item[19.b] \textbf{Proposition.} For all real numbers $x$ and $y$, if $x \neq y, x > 0$, and $y > 0$, then $\frac{x}{y} + \frac{y}{x} > 2$. \\
+	\\
+	The proposition is true, however the proof is incorrect. The proof erroneously assumes the very thing they are trying prove, namely that $\left(\frac{x}{y} + \frac{y}{x}\right)xy > 2xy \Rightarrow \frac{x}{y} + \frac{y}{x} > 2$.
+	
+	\begin{proof}
+		Suppose $\frac{x}{y} + \frac{y}{x} \leq 2$. We need to show either $x = y, x \leq 0$, or $y \leq 0$. Since
+		\begin{align*}
+			\frac{x}{y} + \frac{y}{x} &\leq 2, \\
+			x^2 + y^2 &\leq 2xy \\
+			x^2 - 2xy + y^2 &\leq 0 \\
+			(x - y)^2 &\leq 0 \\
+			\Rightarrow x - y &= 0 \\
+			x &= y.
+		\end{align*}
+	And since $x = y$ is exactly a condition that was meant to be shown, the theorem is proven.
+	\end{proof}
+	\item[19.d] \textbf{Proposition.} For all positive integers $a, b$, and $c, \left(a^b\right)^c = a^{\left(b^c\right)}$. \\
+	\\
+	The proposition is false and the counterexample given is correct in disproving it. The proof is \textit{almost} well written but for a missing period on the last line.
+\end{itemize}
+
+\section*{3.2}
+	\begin{itemize}
+		\item[19.a] \textbf{Proposition.} If $m$ is an odd integer, then $(m + 6)$ is an odd integer. \\
+			\\
+			The proposition is true but the proof is incorrect as it erroneously assumes what is being proven. Namely, it assumes $m + 6$ is odd.
+			\begin{proof}
+				Let $m$ be odd. Then $m = 2k + 1$ for some $k \in \mathbb{Z}$. Hence,
+				\begin{align*}
+					m + 6 &= (2k + 1) + 6 \\
+					&= (2k + 6) + 1 \\
+					&= 2(k + 3) + 1.
+				\end{align*}
+				Since $m + 6$ is can be expressed in the form $2n + 1$ with $n = k + 3$, an integer, $m + 6$ must be odd.
+			\end{proof}
+		\item[19.b] \textbf{Proposition.} For all integers $m$ and $n$, if $mn$ is an even integer, then $m$ is even or $n$ is even. \\
+		\\
+		The proposition is true but the proof is incorrect as it proves the converse, not the original statement in question. 
+		\begin{proof}
+			Suppose $m, n \in \mathbb{Z}$ are both odd. We need to show that $mn$ is odd. There exists $j, k \in \mathbb{Z}$ such that $m = 2j + 1$ and $n = 2k + 1$. Then
+			\begin{align*}
+				mn &= (2j + 1)(2k + 1) \\
+				&= 4jk + 2k + 2j + 1 \\
+				&= 2(2jk + k + j) + 1.
+			\end{align*}
+		    Since $mn$ can be written in the form $2p + 1$ with $p = 2jk + k + j \in \mathbb{Z}, mn$ is odd.
+		\end{proof}
+	\end{itemize}
+\section*{3.3}
+\begin{itemize}
+	\item[20.a] \textbf{Proposition.} For every real number $x$, if $x$ is irrational and $m$ is an integer, then $mx$ is irrational. \\
+	\\
+	The proposition is false. The error in the proof lies in the fact that it assumes $x \neq y \Rightarrow mx \neq my$ for real numbers $x$ and $y$ and some integer $m$, which is false. Indeed, given $x, y \in \mathbb{R}, x \neq y$ we can multiply both by 0 and the resulting products will be equal.
+		\begin{proof}
+			Given an irrational number $x$, the product $0x = 0$ is rational despite the fact that $x$ is irrational and $0$ is rational which contradicts the proposition.
+		\end{proof}
+	\item[20.b] For all real numbers $x$ and $y$, if $x$ is irrational and $y$ is rational, then $x + y$ is irrational. \\
+	\\
+	The proposition is true and the proof is well written. However, there is a minor critique I have which is that the author declares $x \not\in \mathbb{Q}$ without specifying a set which $x$ exists in. Replacing $x \not\in \mathbb{Q}$ with $x \in \mathbb{R} - \mathbb{Q}$ will resolve this ambiguity.
+	
+	\item[20.c] For each real number $x$, $x(1-x) \leq \frac{1}{4}$. \\
+	\\
+	The proposition is true but the proof is incorrect. The proof assumes the existence of an $x$ which makes the statement false for the purpose of contradiction. However, later the author then declares $x = 3$ without justification, which would be necessary.
+	\begin{proof}
+		For the sake of contradiction, suppose $\exists x \in \mathbb{R}$ such that $x(1-x) > \frac{1}{4}$. Then
+		\begin{align*}
+			x(1-x) = x - x^2 &> \frac{1}{4} \\
+			0 &> 4x^2 - 4x + 1 \\
+			&> (2x - 1)^2
+		\end{align*}
+	Since the square of any real number is at least $0$, therein lies the contradiction. Thus, the proposition is true.
+	\end{proof}
+\end{itemize}
+\section*{3.4}
+\begin{itemize}
+	\item[13.a] For all nonzero integers $a$ and $b$, if $a + 2b \neq 3$ and $9a+2b \neq 1$, then the equation $ax^3 + 2bx = 3$ does not have a solution that is a natural number. \\
+	\\ 
+	The proposition is true but the proof is incorrect as it does not exhaust all possible cases for $n$ (it assumes, incorrectly, that $n = 3$ and nothing else).
+\begin{proof}
+	Suppose $ax^3 + 2bx = 3$ has a solution that is a natural number. We need to show that there exists $a, b \in \mathbb{Z^*}$ such that $a + 2b = 3$ or $9a + 2b = 1$. Let $n \in \mathbb{N}$ be a natural number such that $an^3 + 2bn = 3$. Then $n(an^2 + 2b) = 3$. Since $a, b,$ and $n$ are integers which are closed under addition and multiplication, $an^2 + 2b$ is an integer. Thus we are left with two cases:
+	\begin{itemize}
+		\item[case 1:] $n = 1, an^2 + 2b = 3 \Rightarrow a + 2b = 3$.
+		\item[case 2:] $n = 3, an^2 + 2b = 1 \Rightarrow 9a + 2b = 1.$
+	\end{itemize}
+	So in both cases we can show either $a + 2b = 3$ or $9a + 2b = 1$, which was what was meant to be shown.
+\end{proof}
+	\item[13.b] For all nonzero integers $a$ and $b$, if $a + 2b \neq 3$ and $9a+2b \neq 1$, then the equation $ax^3 + 2bx = 3$ does not have a solution that is a natural number. \\
+	\\
+	The proposition is true but the proof is incomplete. It is necessary that they exhaust all possible cases, namely the case where $n = 3$
+	\begin{proof}
+		See \textbf{13.a}
+	\end{proof}
+\end{itemize}
+
+\end{document}
